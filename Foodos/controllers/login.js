@@ -1,5 +1,4 @@
 var express = require('express');
-var mysql = require('mysql');
 var userModel = require.main.require('./models/user-model');
 var router = express.Router();
 
@@ -15,21 +14,19 @@ router.post('/', function(request, response){
 	};
 	
 	userModel.validate(user, function(status){
-		if(status){
-			request.session.un = request.body.username;
-			
-			userModel.get(function(result){
-				if (result.type == 'admin')
-				{
-					response.render('home/admin-home');
-				}
-				else
-				{
-					response.render('home/emp-home');
-				}
-		});
-			response.redirect('/home');
-		}else{
+		if (status)
+		{
+			if (type == "admin")
+			{
+				response.redirect('/admin');
+			}
+			else
+			{
+				response.redirect('/superadmin');
+			}
+		}
+		else
+		{
 			response.redirect('/login');
 		}
 	});

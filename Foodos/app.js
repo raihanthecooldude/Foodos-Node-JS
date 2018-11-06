@@ -6,7 +6,8 @@ var cookieParser 	= require('cookie-parser');
 var home 			= require('./controllers/home');
 var login 			= require('./controllers/login');
 var logout 			= require('./controllers/logout');
-var registration 			= require('./controllers/registration');
+var admin           = require('./controllers/admin');
+var superadmin      = require('./controllers/superadmin');
 var app 			= express();
 
 //CONFIGURATION
@@ -22,7 +23,8 @@ app.use(cookieParser());
 app.use('/login', login);
 app.use('/logout', logout);
 app.use('/home', home);
-app.use('/registration', registration);
+app.use('/admin', admin);
+app.use('/superadmin', superadmin);
 
 app.get('/', function(request, response){
 	response.render('index');

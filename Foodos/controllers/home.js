@@ -1,6 +1,6 @@
 var express = require('express');
-var userModel = require.main.require('./models/user-model');
-var productModel = require.main.require('./models/product-model');
+var areaModel = require.main.require('./models/area-model');
+var foodModel = require.main.require('./models/food-model');
 var router = express.Router();
 
 
@@ -18,9 +18,25 @@ router.get('/', function(request, response){
 	response.redirect('/login');
 });
 
-router.get('/padd', function(request, response){
+router.get('/search', function(request, response){
 	
-	response.render('home/padd')
+	areaModel.getAll(function (arealist)
+	{
+		foodModel.getAll(function (foodlist)
+		{
+			response.render('search/index', {area : arealist, food : foodlist})
+		})
+	});
+	response.render('search/index');
+});
+
+router.post('/search', function(request, response){
+	var searchparams = {
+		area : request.body.area,
+		food : request.body.food,
+		price : request.body.price
+	};
+	response.render('search/index');
 });
 
 router.get('/productList', function(request, response){
