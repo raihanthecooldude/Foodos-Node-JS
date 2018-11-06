@@ -5,7 +5,7 @@ module.exports={
 	get: function(userId, callback){
 		var sql = "select * from user where id=?";
 		db.getResult(sql, [userId], function(result){
-			//console.log(result);
+			//console.log(result);sdgnsdfnsrdfgb
 			callback(result[0]);
 		});
 	},
