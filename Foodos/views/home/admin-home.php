@@ -6,6 +6,6 @@
 </head>
 <body>
 	<h1>Welcome Home <%= name %></h1>  | <a href="/logout">Logout</a>
-	<a href="#">User List</a> | <a href="#">Create User</a>
+	<a href="#">Search List</a> | <a href="#">User List</a> | <a href="#">Create User</a>
 </body>
 </html>
