@@ -4,7 +4,7 @@ var confiq = {
 		host	: 'localhost',
 		user 	: 'root',
 		password: '',
-		database: 'sms'
+		database: 'foodos'
 	};
 
 var getConnection = function(){

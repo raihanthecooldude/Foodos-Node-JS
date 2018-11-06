@@ -9,7 +9,6 @@ module.exports={
 			callback(result[0]);
 		});
 	},
-
 	getAll: function(callback){
 		var sql = "SELECT * FROM user";
 		db.getResult(sql, [], function(result){
