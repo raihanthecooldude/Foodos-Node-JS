@@ -8,6 +8,11 @@ var login 			= require('./controllers/login');
 var logout 			= require('./controllers/logout');
 var admin           = require('./controllers/admin');
 var superadmin      = require('./controllers/superadmin');
+var search 			= require('./controllers/search');
+var areaModel		= require.main.require('./models/area-model');   
+var foodModel		= require.main.require('./models/food-model');    
+var historyModel	= require.main.require('./models/history-model');  
+var anonymousModel	= require.main.require('./models/anonymous-model');  
 var app 			= express();
 
 //CONFIGURATION
@@ -17,6 +22,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(expressSession({secret: 'hhdhdhdhd', saveUninitialized: true, resave: false}));
 app.use(cookieParser());
+app.use('/assets', express.static('res'));
 
 
 //ROUTING
@@ -25,9 +31,37 @@ app.use('/logout', logout);
 app.use('/home', home);
 app.use('/admin', admin);
 app.use('/superadmin', superadmin);
+app.use('/search', search);
 
 app.get('/', function(request, response){
-	response.render('index');
+	areaModel.getAll(function (arealist)
+	{
+		foodModel.getAll(function (foodlist)
+		{
+			response.render('index', {area : arealist, food : foodlist});
+		})
+	});
+});
+app.post('/', function(request, response){
+	var searchparams = {
+		area : request.body.area,
+		food : request.body.food,
+		price : request.body.price
+	};
+	// console.log(searchparams);
+	historyModel.insert(searchparams, function (status)
+	{
+		if (status) 
+		{
+			if (request.body.area != "Dhaka")
+			{
+				request.session.area = request.body.area;
+				request.session.food = request.body.food;
+				request.session.price = request.body.price;
+				response.redirect('/search');
+			}
+		}
+	});
 });
 
 

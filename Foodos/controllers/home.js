@@ -27,7 +27,6 @@ router.get('/search', function(request, response){
 			response.render('search/index', {area : arealist, food : foodlist})
 		})
 	});
-	response.render('search/index');
 });
 
 router.post('/search', function(request, response){

@@ -5,20 +5,20 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<link rel="shortcut icon" href="img/tab-logo.png">
+	<link rel="shortcut icon" href="assets/tab-logo.png">
 	
 	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
 
-	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
-	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
-	<link rel="stylesheet" href="css/component.css"> <!-- Resource style -->
-	<link rel="stylesheet" href="css/animated-bg.css"> <!-- Resource style -->
+	<link rel="stylesheet" href="assets/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="assets/style.css"> <!-- Resource style -->
+	<link rel="stylesheet" href="assets/component.css"> <!-- Resource style -->
+	<link rel="stylesheet" href="assets/animated-bg.css"> <!-- Resource style -->
 
-	<link rel="stylesheet" href="css/login.css"> <!-- Login Dialog style -->
+	<link rel="stylesheet" href="assets/login.css"> <!-- Login Dialog style -->
 
-	<script src="js/modernizr.js"></script> <!-- Modernizr -->
+	<script src="assets/modernizr.js"></script> <!-- Modernizr -->
   	
 	<title>Foodo's</title>
 </head>
@@ -87,52 +87,32 @@
 					<canvas id="demo-canvas"></canvas>
 					<h1 class="main-title" style="font-family: Calibri;"><b> Always say <i style="color: #ffcc00;">Hello</i> to Food</b></h1>
 					<h1 class="">
-						<form name = "index" action = "search.php" method = "GET">
+						<form name = "index" method="Post">
 							<select name="area" class="area-bar">
 								<option value="Dhaka">Area</option>
-								<?php
-
-									require 'config.php';
-
-									$statement = "select * from area order by AREA_NAME";
-									$s = oci_parse($c, $statement);
-									oci_execute($s);
-									$i='hello';
-									while(($row = oci_fetch_assoc($s)) != false) 
-									{
-										if($row['AREA_NAME']!=$i)
-										{
-											echo "<option value='".$row['AREA_NAME']."'>".$row['AREA_NAME']."</option>";
-											$i=$row['AREA'];
-										}
-									}
-									oci_close($c);
-								?>
+								<% for(var i = 0; i < area.length; i++){ %>
+									<option value=" <%= area[i].area_name %>"><%= area[i].area_name %> </option>
+								
+								<% } %>
 							</select>
 
 							<select name="food" class="food-bar" required>
 								<option value="">Food Name</option>
-								<?php
-
-									require 'config.php';
-
-									$statement = "select * from food order by CATEGORY";
-									$s = oci_parse($c, $statement);
-									oci_execute($s);
-									$i='hello';
-									while(($row = oci_fetch_assoc($s)) != false) 
-									{
-										if($row['CATEGORY']!=$i)
-										{
-											echo "<option value='".$row['CATEGORY']."'>".$row['CATEGORY']."</option>";
-											$i=$row['CATEGORY'];
-										}
+								<% var x = 'hello';
+								for(var i = 0; i < food.length; i++)
+								{ 
+									if (food[i].food_name != x)
+									{	
+								%>
+									<option value=" <%= food[i].food_name %>"><%= food[i].food_name %> </option>
+								<%
+									x = food[i].food_name;
 									}
-									oci_close($c);
-								?>
+								} 
+								%>
 							</select>
 							<input type="number" name="price" placeholder="Price" class="price-bar price-text" required>
-							<button type="submit" name="hello" class="search-button">Search</button> 
+							<button type="submit" name="submit" class="search-button">Search</button> 
 						</form>
 					</h1>
 				</div>
@@ -318,14 +298,14 @@
 
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="js/jquery-2.1.1.js"></script>
-<script src="js/main.js"></script> <!-- Resource jQuery -->
+<script src="assets/jquery-2.1.1.js"></script>
+<script src="assets/main.js"></script> <!-- Resource jQuery -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5wGdqrTcgLdOPzMbASsbiHkloxc6v2rE"></script>
 
-		<script src="js/TweenLite.min.js"></script>
-		<script src="js/EasePack.min.js"></script>
-		<script src="js/rAF.js"></script>
-		<script src="js/demo-1.js"></script>
+		<script src="assets/TweenLite.min.js"></script>
+		<script src="assets/EasePack.min.js"></script>
+		<script src="assets/rAF.js"></script>
+		<script src="assets/demo-1.js"></script>
 
 <!-- Script for smooth scrolling -->
 <script>

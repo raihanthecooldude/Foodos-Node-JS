@@ -10,7 +10,7 @@ module.exports={
 		});
 	},
 	getAll: function(callback){
-		var sql = "SELECT * FROM food";
+		var sql = "SELECT * FROM food order by food_name";
 		db.getResult(sql, [], function(result){
 			callback(result);
 		});

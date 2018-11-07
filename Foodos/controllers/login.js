@@ -18,6 +18,7 @@ router.post('/', function(request, response){
 		{
 			if (type == "admin")
 			{
+				request.session.un = request.body.username;
 				response.redirect('/admin');
 			}
 			else

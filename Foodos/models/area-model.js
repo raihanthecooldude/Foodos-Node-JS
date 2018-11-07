@@ -10,7 +10,7 @@ module.exports={
 		});
 	},
 	getAll: function(callback){
-		var sql = "SELECT * FROM area";
+		var sql = "SELECT * FROM area order by area_name";
 		db.getResult(sql, [], function(result){
 			callback(result);
 		});
