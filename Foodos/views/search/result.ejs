@@ -31,7 +31,7 @@
             border-top-left-radius: 4px;
             border-top-right-radius: 4px;
             background-color: white;
-            background-image: url('img/search-icon.png');
+            background-image: url('assets/search-icon.png');
             background-position: 10px 10px;
             background-repeat: no-repeat;
             padding: 12px 20px 12px 40px;
@@ -151,7 +151,11 @@
 			<br><br>
 			<table class="result-table" align="center" style="line-height: 1.6; font-family: Calibri; font-size: 16px; color: black;">
 				<%
-				if (foodlist.length > 0)
+				if(foodlist.length == null)
+				{
+
+				}
+				else if (foodlist.length > 0)
 				{
 			 		for(var i = 0; i < foodlist.length; i++)
 			 		{ %>
@@ -161,8 +165,8 @@
 			 		<td> <%= foodlist[i].price %></td>
 			 		</tr>	
 					<% } %>
-				<% 
-				} 
+				<%
+				}
 				%>
 			</table>
 			<br><br><br><br>

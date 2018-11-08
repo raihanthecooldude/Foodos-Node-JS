@@ -9,6 +9,9 @@ var logout 			= require('./controllers/logout');
 var admin           = require('./controllers/admin');
 var superadmin      = require('./controllers/superadmin');
 var search 			= require('./controllers/search');
+var history         = require('./controllers/history');
+var userlist        = require('./controllers/userlist');
+var adduser        = require('./controllers/adduser');
 var areaModel		= require.main.require('./models/area-model');   
 var foodModel		= require.main.require('./models/food-model');    
 var historyModel	= require.main.require('./models/history-model');  
@@ -32,6 +35,9 @@ app.use('/home', home);
 app.use('/admin', admin);
 app.use('/superadmin', superadmin);
 app.use('/search', search);
+app.use('/history', history);
+app.use('/userlist', userlist);
+app.use('/adduser', adduser);
 
 app.get('/', function(request, response){
 	areaModel.getAll(function (arealist)
@@ -58,7 +64,19 @@ app.post('/', function(request, response){
 				request.session.area = request.body.area;
 				request.session.food = request.body.food;
 				request.session.price = request.body.price;
-				response.redirect('/search');
+				// response.redirect('/search');
+				
+				var searchparams = {
+					area : request.session.area,
+					food : request.session.food,
+					price : request.session.price
+				};
+				// console.log(searchparams);
+				anonymousModel.getAllArea(searchparams, function(result)
+				{
+					console.log(result);
+					response.render('search/result', {foodlist : result});
+				})
 			}
 		}
 	});

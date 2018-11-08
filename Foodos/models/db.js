@@ -1,7 +1,7 @@
 var mysql = require('mysql');
 
 var confiq = {
-		host	: 'localhost',
+		host	: '127.0.0.1',
 		user 	: 'root',
 		password: '',
 		database: 'foodos'
@@ -27,6 +27,10 @@ module.exports= {
 		if(params == ""){
 			var connection = getConnection();
 				connection.query(sql, function (error, results) {
+					
+					console.log(sql);
+					//console.log(results);
+					//console.log(error);
 				  if(error){
 				  	callback([]);
 				  }else{

@@ -9,16 +9,19 @@ router.get('/', function(request, response){
 router.post('/', function(request, response){
 
 	var user = {
-		username : request.body.username,
-		password : request.body.password
+		username : request.body.un,
+		password : request.body.pw
 	};
+	// console.log(user);
 	
-	userModel.validate(user, function(status){
+	userModel.validate(user, function(status, type){
 		if (status)
 		{
 			if (type == "admin")
 			{
-				request.session.un = request.body.username;
+				console.log(request.body.un);
+				request.session.un = request.body.un;
+				console.log(request.session.un);
 				response.redirect('/admin');
 			}
 			else

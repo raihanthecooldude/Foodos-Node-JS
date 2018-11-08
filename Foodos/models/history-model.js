@@ -3,7 +3,7 @@ var db = require('./db');
 module.exports={
 	
 	getAll: function(callback){
-		var sql = "SELECT * FROM food";
+		var sql = "SELECT * FROM history";
 		db.getResult(sql, [], function(result){
 			callback(result);
 		});
