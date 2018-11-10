@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0.1
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 07, 2018 at 03:00 AM
--- Server version: 10.1.32-MariaDB
--- PHP Version: 5.6.36
+-- Generation Time: Nov 09, 2018 at 01:37 PM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 7.1.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -28808,7 +28808,39 @@ INSERT INTO `history` (`hid`, `area`, `food_name`, `price`) VALUES
 (12, ' Dhanmondi', ' Sea Food', '500'),
 (13, ' Dhanmondi', ' Sea Food', '500'),
 (14, ' Dhanmondi', ' Sea Food', '500'),
-(15, ' Dhanmondi', ' Sea Food', '500');
+(15, ' Dhanmondi', ' Sea Food', '500'),
+(16, ' Dhanmondi', ' Sea Food', '500'),
+(17, ' Cantonment', '  Chicken Shashilk', '1000'),
+(18, ' Dhanmondi', ' Sea Food', '500'),
+(19, ' Dhanmondi', ' Sea Food', '500'),
+(20, ' Dhanmondi', ' Sea Food', '500'),
+(21, ' Dhanmondi', ' Sea Food', '500'),
+(22, ' Dhanmondi', ' Sea Food', '500'),
+(23, ' Dhanmondi', ' Sea Food', '500'),
+(24, ' Dhanmondi', ' Sea Food', '500'),
+(25, ' Dhanmondi', ' Sea Food', '500'),
+(26, ' Dhanmondi', ' Sea Food', '500'),
+(27, ' Dhanmondi', ' Sea Food', '500'),
+(28, ' Dhanmondi', ' Sea Food', '500'),
+(29, ' Dhanmondi', ' Sea Food', '500'),
+(30, ' Dhaka university area', '  Felafel Shawarma', '213'),
+(31, ' Dhanmondi', ' Sea Food', '500'),
+(32, ' Dhanmondi', ' Sea Food', '500'),
+(33, ' Dhanmondi', ' Sea Food', '500'),
+(34, 'Dhanmondi', 'Sea Food', '500'),
+(35, 'Dhanmondi', 'Sea Bass', '500'),
+(36, 'Dhanmondi', 'Sea Bass', '5000'),
+(37, 'Dhanmondi', 'Sea Bass', '5000'),
+(38, 'Dhanmondi', 'Sea Food', '500'),
+(39, 'Darus salam', ' Felafel Shawarma', '78'),
+(40, 'Dhanmondi', 'Sea Food', '500'),
+(41, 'Dhaka housing', ' Creamy Double Cheeseburger', '3456'),
+(42, 'Dhanmondi', ' Chicken Shashilk', '5678'),
+(43, 'Dhanmondi', 'Sea Food', '500'),
+(44, 'Dhanmondi', 'Sea Food', '500'),
+(45, 'Dhanmondi', 'Sea Food', '500'),
+(46, 'Dhanmondi', 'Sea Food', '500'),
+(47, 'Dhanmondi', 'Sea Food', '500');
 
 -- --------------------------------------------------------
 
@@ -35278,7 +35310,10 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`uid`, `name`, `username`, `password`, `email`, `type`) VALUES
-(1, 'ali', 'alibaba', '1234', 'abc@gmail.com', 'admin');
+(1, 'ali', 'alibaba', '1234', 'abc@gmail.com', 'admin'),
+(5, 'logan', 'wolverine', 'xmen', 'xmen@gmail.com', 'admin'),
+(6, 'yolo', 'yolo', '123', 'tishanleonider@gmail.com', 'admin'),
+(7, 'kabul', 'kabul', '4321', 'kabul@gmail.com', 'admin');
 
 --
 -- Indexes for dumped tables
@@ -35322,13 +35357,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `history`
 --
 ALTER TABLE `history`
-  MODIFY `hid` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `hid` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `uid` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `uid` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
