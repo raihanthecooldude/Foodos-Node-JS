@@ -1,7 +1,7 @@
 var mysql = require('mysql');
 
 var confiq = {
-		host	: '127.0.0.1',
+		host	: 'localhost',
 		user 	: 'root',
 		password: '',
 		database: 'foodos'

@@ -151,12 +151,15 @@
 			<br><br>
 			<table class="result-table" align="center" style="line-height: 1.6; font-family: Calibri; font-size: 16px; color: black;">
 				<%
-				if(foodlist.length == null)
+				if (foodlist.length > 0)
 				{
-
-				}
-				else if (foodlist.length > 0)
-				{
+				%>
+					<tr>
+			 		<th> Restaurant Name</th>	
+			 		<th> Food Name </th>	
+			 		<th> Price</th>
+			 		</tr>
+			 	<%
 			 		for(var i = 0; i < foodlist.length; i++)
 			 		{ %>
 			 		<tr>
