@@ -1,6 +1,6 @@
 var mysql = require('mysql');
 
-var confiq = {
+var config = {
 		host	: 'localhost',
 		user 	: 'root',
 		password: '',
@@ -8,7 +8,7 @@ var confiq = {
 	};
 
 var getConnection = function(){
-	var connection = mysql.createConnection(confiq);
+	var connection = mysql.createConnection(config);
 	connection.connect(function(err) {
 		  if (err) {
 		    console.error('error connecting: ' + err.stack);

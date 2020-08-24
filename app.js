@@ -26,6 +26,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(expressSession({secret: 'hhdhdhdhd', saveUninitialized: true, resave: false}));
 app.use(cookieParser());
 app.use('/assets', express.static('res'));
+app.use(express.static('public'));
 
 
 //ROUTING
